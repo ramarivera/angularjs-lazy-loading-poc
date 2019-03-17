@@ -3,7 +3,15 @@ import * as angular from 'angular';
 // tslint:disable-next-line:no-duplicate-imports
 import { IRootScopeService } from 'angular';
 
-import { StateDeclaration, Transition, UIRouter } from '@uirouter/angularjs';
+import {
+    default as uiRouter,
+    StateDeclaration,
+    Transition,
+    UIRouter
+} from '@uirouter/angularjs';
+
+import '../../node_modules/@uirouter/angularjs/lib/legacy/stateEvents';
+import '../../node_modules/oclazyload/dist/ocLazyLoad';
 
 import { ILazyLoad } from 'oclazyload';
 
@@ -12,7 +20,7 @@ import rootComponent from './main/root/root.module';
 const routingModuleName = 'llpoc.Routing';
 
 const routingModule = angular.module(routingModuleName, [
-    'ui.router',
+    uiRouter,
     'ui.router.state.events',
     'oc.lazyLoad',
     rootComponent

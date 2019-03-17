@@ -2,6 +2,20 @@
 # yarn lockfile v1
 
 
+"@types/angular-animate@^1.5.10":
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/@types/angular-animate/-/angular-animate-1.5.10.tgz#b94b45358c61163f1478768e8b081c76439c515f"
+  integrity sha512-MnYYvTHAPUbtT6gqwrnl6k3a03A5BlNz1nVlwVGxyS+MeWCX4DC14SJ/pgJUa8wj+J04wZ2prMxFsOfp6cyjjQ==
+  dependencies:
+    "@types/angular" "*"
+
+"@types/angular-sanitize@^1.3.7":
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/@types/angular-sanitize/-/angular-sanitize-1.3.7.tgz#1c4fcf5f517adccc731f3c977704c0543eb19cf9"
+  integrity sha512-Ha8XJ2zP2jPwRd4cQ3f1fGhrdbgCbyHoHMdSoMjfx7Se5VtNTdxFuAlW59dXlDadIo9JTHimWbYVRQYiUMdjoQ==
+  dependencies:
+    "@types/angular" "*"
+
 "@types/angular-ui-bootstrap@^0.13.46":
   version "0.13.47"
   resolved "https://registry.yarnpkg.com/@types/angular-ui-bootstrap/-/angular-ui-bootstrap-0.13.47.tgz#e9fd4baf09dd98ff2b868ed00474310b2a66fa37"
@@ -474,6 +488,16 @@ ajv@^6.1.0:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+angular-animate@^1.7.8:
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.7.8.tgz#c95f237efe7ecfe0e6003adb5e2c7ef0e5a2b9d4"
+  integrity sha512-bINtzizq7TbJzfVrDpwLfTxVl0Qd7fRNWFb5jKYI1vaFZobQNX/QONXlLow6ySsDbZ6eLECycB7mvWtfh1YYaw==
+
+angular-sanitize@^1.7.8:
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.7.8.tgz#87d59f754bb18d286dfd9d6ce867299c094c6719"
+  integrity sha512-sVq51is1cVNiPytH4JIEd7iRW0OBIRQGNETWkz1c/jnLv2sBf9oDxEd8enwDz/W2ULBIpqJPK/3AsIxmZyh9pA==
 
 angular@^1.7.8:
   version "1.7.8"
