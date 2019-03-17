@@ -1,7 +1,7 @@
 import { IComponentOptions } from 'angular';
 
-import { RootController } from './root.controller';
 import template from './root.component.html';
+import { RootController } from './root.controller';
 import './root.css';
 
 export class RootComponent implements IComponentOptions {
@@ -10,6 +10,5 @@ export class RootComponent implements IComponentOptions {
     public bindings = {};
     public template = template;
     public controller = RootController;
-    public controllerAs = "ctrl";
+    public controllerAs = 'ctrl';
 }
-

@@ -1,18 +1,19 @@
 // tslint:disable:no-imports-matching
 
 import * as del from 'del'; // rm -rf
+import * as path from 'path';
 
-import * as once from 'async-once';
+// tslint:disable:no-var-requires
+const prettier = require('gulp-prettier');
+const clean = require('gulp-clean');
+
 import camelcase from 'camelcase';
 import * as gulp from 'gulp';
-import * as clean from 'gulp-clean';
 import * as filter from 'gulp-filter';
-import * as prettier from 'gulp-prettier';
 import * as rename from 'gulp-rename';
 import * as template from 'gulp-template';
 import gulpTsLint from 'gulp-tslint';
 import * as lodash from 'lodash';
-import * as path from 'path';
 import * as tslint from 'tslint';
 import * as yargs from 'yargs';
 
@@ -23,7 +24,7 @@ const paths = {
 
 const getName = () => yargs.argv.name || yargs.argv.n;
 const getRoot = () => yargs.argv.root || yargs.argv.r;
-const getCWD = () => process.env.INIT_CWD;
+const getCWD = (): string => process.env.INIT_CWD || '';
 
 const getDestinationPath = () => {
     const cwd = getCWD();
@@ -53,17 +54,20 @@ gulp.task(
             gulp
                 .src(paths.componentTemplate)
                 .pipe(
-                    template({
-                        appPrefix: appPrefix,
-                        rootModule: rootModule,
-                        lowerName: camelcase(name),
-                        upperName: camelcase(name, { pascalCase: true }),
-                        kebabName: name
-                    })
+                    template(
+                        {
+                            appPrefix: appPrefix,
+                            rootModule: rootModule,
+                            lowerName: camelcase(name),
+                            upperName: camelcase(name, { pascalCase: true }),
+                            kebabName: name
+                        },
+                        {}
+                    )
                 )
                 .pipe(
                     rename(dest => {
-                        dest.basename = dest.basename.replace('temp', name);
+                        dest.basename = dest.basename!.replace('temp', name);
                     })
                 )
                 // .pipe(tsFilter)

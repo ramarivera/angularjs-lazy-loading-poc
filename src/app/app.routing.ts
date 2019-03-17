@@ -3,29 +3,41 @@ import * as angular from 'angular';
 // tslint:disable-next-line:no-duplicate-imports
 import { IRootScopeService } from 'angular';
 
-import { UIRouter } from '@uirouter/angularjs';
+import { StateDeclaration, Transition, UIRouter } from '@uirouter/angularjs';
 
 import { ILazyLoad } from 'oclazyload';
 
-import {
-    IState,
-    IStateProvider,
-    IStateService,
-    IUrlRouterProvider
-} from 'angular-ui-router';
+import { IState, IStateService } from 'angular-ui-router';
 
-export const Name = 'llpoc.Routing';
+import rootComponent from './main/root/root.module';
 
-const routingModule = angular.module(Name, [
+const routingModuleName = 'llpoc.Routing';
+
+const routingModule = angular.module(routingModuleName, [
     'ui.router',
     'ui.router.state.events',
-    'oc.lazyLoad'
+    'oc.lazyLoad',
+    rootComponent
 ]);
 
 export const rootState = {
     name: 'root',
     url: '/',
     component: 'llpocRoot'
+};
+
+export const feature1FutureState: StateDeclaration = {
+    parent: 'root',
+    name: 'feature1.**',
+    url: '/feature1',
+    lazyLoad: async $transition$ => {
+        const $ocLazyLoad: ILazyLoad = $transition$
+            .injector()
+            .get('$ocLazyLoad');
+
+        const module = await import(/* webpackChunkName: "feature1" */ './feature1/feature1.module');
+        return $ocLazyLoad.load(module.default);
+    }
 };
 
 routingModule.config([
@@ -42,7 +54,8 @@ routingModule.config([
 
         const $stateRegistry = $uiRouter.stateRegistry;
 
-        // $stateRegistry.register(appState);
+        $stateRegistry.register(rootState);
+        $stateRegistry.register(feature1FutureState);
         // $stateRegistry.register(homeState);
         // $stateRegistry.register(loginState);
         // $stateRegistry.register(welcomeState);
@@ -53,4 +66,4 @@ routingModule.config([
     }
 ]);
 
-export default routingModule.name;
+export default routingModuleName;

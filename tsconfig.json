@@ -9,12 +9,10 @@
         "sourceMap": true,
         "target": "es6",
         "module": "esnext",
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
         "moduleResolution": "node",
         "outDir": "dist",
         "baseUrl": "src",
-        "lib": ["dom", "es5", "scripthost", "es2015.promise"]
+        "lib": ["dom", "es5", "es6", "scripthost", "es2015.promise"]
     },
     "compileOnSave": true,
     "include": ["src/**/*"],
