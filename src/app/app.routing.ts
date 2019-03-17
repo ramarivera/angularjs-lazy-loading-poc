@@ -7,8 +7,6 @@ import { StateDeclaration, Transition, UIRouter } from '@uirouter/angularjs';
 
 import { ILazyLoad } from 'oclazyload';
 
-import { IState, IStateService } from 'angular-ui-router';
-
 import rootComponent from './main/root/root.module';
 
 const routingModuleName = 'llpoc.Routing';

@@ -72,6 +72,18 @@ const config = {
                 exclude: /node_modules/
             },
             {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                        options: {
+                            minimize: true
+                        }
+                    }
+                ],
+                exclude: /index\.html$/
+            },
+            {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             },
@@ -117,7 +129,6 @@ const config = {
             inject: false
         }),
         new CopyWebpackPlugin([
-            { from: 'App/**/*.html' },
             { from: '../node_modules/angular/angular.min.js' },
             { from: '../node_modules/jquery/dist/jquery.min.js' }
         ]),
