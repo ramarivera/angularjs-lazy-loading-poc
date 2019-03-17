@@ -10,6 +10,8 @@ import tsNameof from 'ts-nameof';
 
 export const ROOT_FOLDER = path.resolve(__dirname, '..');
 
+console.log(ROOT_FOLDER);
+
 export function defaultChunkOptimization(
     name: string,
     regex: RegExp,
@@ -37,7 +39,7 @@ export function defaultChunkOptimization(
 const config = {
     context: path.resolve(ROOT_FOLDER, 'src'),
     entry: {
-        main: path.resolve(ROOT_FOLDER, '/src/main.ts')
+        main: path.resolve(ROOT_FOLDER, 'src/main.ts')
     },
     output: {
         path: path.resolve(ROOT_FOLDER, 'dist'),

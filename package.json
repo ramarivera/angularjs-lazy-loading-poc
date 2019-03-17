@@ -6,7 +6,7 @@
     "author": "ramarivera",
     "license": "MIT",
     "scripts": {
-        "dev": "yarn && cross-env TS_NODE_PROJECT=\"config/webpack.tsconfig.json\" webpack-dev-server --config ./config/base.webpack.config.ts",
+        "dev": "yarn && cross-env TS_NODE_PROJECT=\"./config/webpack.tsconfig.json\" webpack-dev-server --config ./config/base.webpack.config.ts",
         "start": "yarn run dev",
         "build": "yarn && webpack --config ./config/base.webpack.tsconfig.ts"
     },

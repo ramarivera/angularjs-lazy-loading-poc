@@ -52,3 +52,5 @@ routingModule.config([
         // $stateRegistry.register(mymessagesFutureState);
     }
 ]);
+
+export default routingModule.name;
