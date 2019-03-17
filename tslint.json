@@ -1,0 +1,20 @@
+{
+    "extends": ["tslint:latest", "tslint-config-prettier"],
+    "rules": {
+        "object-literal-sort-keys": false,
+        "no-submodule-imports": false,
+        "curly": [true, "ignore-same-line"],
+        "object-literal-shorthand": [true, "never"],
+        "no-angle-bracket-type-assertion": false,
+        "no-implicit-dependencies": false,
+
+        // Allow flag enum operations
+        "no-bitwise": false,
+
+        // Do not enforce until adding/testing a polyfill for ES6 for compat
+        "prefer-for-of": false,
+        "no-object-literal-type-assertion": false,
+        "radix": false,
+    },
+    "rulesDirectory": "rules"
+}

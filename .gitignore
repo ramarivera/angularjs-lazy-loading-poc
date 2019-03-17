@@ -1,0 +1,14 @@
+﻿# Excluded auto-generated files.
+/build
+/dist
+/node_modules
+
+# Excluded Visual Studio files.
+/bin
+/obj
+ITsynch.MPM.WebUI.njsproj.user
+
+
+# Exclude sensitive files
+
+/*.env

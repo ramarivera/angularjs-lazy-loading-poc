@@ -1,0 +1,8 @@
+{
+    "html": {
+        "wrap_attributes": "force-aligned",
+        "max_preserve_newlines": 1,
+        "content_unformatted": "pre,code,textarea",
+        "unformatted": "wbr"
+    }
+}

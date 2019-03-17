@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"
+      ng-app="llpoc">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+    <title>Lazy Loading Proof of Concept App</title>
+
+    <link rel="icon"
+          href="Content/img/favicon.ico"
+          type="image/x-icon" />
+
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="Content/img/favicon.ico" />
+
+    <link rel="apple-touch-icon image_src"
+          type="image/x-icon"
+          href="Content/img/favicon.ico" />
+
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <link href="<%= htmlWebpackPlugin.files.chunks[chunk].css %>"
+          rel="stylesheet" />
+    <% } %>
+
+</head>
+
+<body>
+    <div ui-view>
+
+    </div>
+
+    <script type="text/javascript"
+            src="jquery.min.js">
+    </script>
+
+    <script type="text/javascript"
+            src="angular.min.js">
+    </script>
+
+    <% if (htmlWebpackPlugin.files.chunks.manifest) { %>
+    <script type="text/javascript"
+            src="<%= htmlWebpackPlugin.files.chunks.manifest.entry %>">
+    </script>
+    <% } %>
+
+    <% if (htmlWebpackPlugin.files.chunks.vendor) { %>
+    <script type="text/javascript"
+            src="<%= htmlWebpackPlugin.files.chunks.vendor.entry %>">
+    </script>
+    <% } %>
+
+    <% if (htmlWebpackPlugin.files.chunks.main) { %>
+    <script type="text/javascript"
+            src="<%= htmlWebpackPlugin.files.chunks.main.entry %>">
+    </script>
+    <% } %>
+
+</body>
+
+</html>

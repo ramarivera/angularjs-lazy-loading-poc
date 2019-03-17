@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "strictFunctionTypes": false, // REMARKS: Momentarely to support DevExtreme typings.
+        "noImplicitAny": true,
+        "noEmitOnError": true,
+        "removeComments": false,
+        "declaration": false,
+        "sourceMap": true,
+        "target": "es6",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "outDir": "dist",
+        "baseUrl": "src",
+        "lib": ["dom", "es5", "scripthost", "es2015.promise"]
+    },
+    "compileOnSave": true,
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
