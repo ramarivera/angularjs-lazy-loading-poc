@@ -6,12 +6,14 @@ import * as once from 'async-once';
 import camelcase from 'camelcase';
 import * as gulp from 'gulp';
 import * as clean from 'gulp-clean';
+import * as filter from 'gulp-filter';
 import * as prettier from 'gulp-prettier';
 import * as rename from 'gulp-rename';
 import * as template from 'gulp-template';
-import tslint from 'gulp-tslint';
+import gulpTsLint from 'gulp-tslint';
 import * as lodash from 'lodash';
 import * as path from 'path';
+import * as tslint from 'tslint';
 import * as yargs from 'yargs';
 
 // map of all paths
@@ -37,10 +39,14 @@ gulp.task('clean', () =>
 gulp.task(
     'component',
     gulp.series('clean', () => {
+        const tsFilter = filter('**/*.ts', { restore: true });
+
+        const program = tslint.Linter.createProgram('./tsconfig.json');
+
         const cwd = getCWD();
         const name = getName();
-        const rootModule = getRoot() || 'MPM';
-        const appPrefix = 'mpm';
+        const rootModule = getRoot() || 'llpoc';
+        const appPrefix = 'llpoc';
         const destPath = getDestinationPath();
 
         return (
@@ -60,7 +66,14 @@ gulp.task(
                         dest.basename = dest.basename.replace('temp', name);
                     })
                 )
-                .pipe(tslint())
+                // .pipe(tsFilter)
+                // .pipe(
+                //     gulpTsLint({
+                //         configuration: './tslint.json',
+                //         fix: true,
+                //         program: program
+                //     })
+                // )
                 // .pipe(prettier())
                 .pipe(gulp.dest(destPath))
         );
