@@ -6,6 +6,8 @@ export class Feat1ListController implements IComponentController {
 
     public name: string = Feat1ListController.Name;
 
+    public list = ['hola', 'soy', 'lazy'];
+
     constructor() {}
 
     public $onInit() {}

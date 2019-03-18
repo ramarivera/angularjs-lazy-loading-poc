@@ -28,7 +28,6 @@ const routingModule = angular.module(routingModuleName, [
 
 export const rootState = {
     name: 'root',
-    url: '/',
     component: 'llpocRoot'
 };
 
@@ -42,7 +41,7 @@ export const feature1FutureState: StateDeclaration = {
             .get('$ocLazyLoad');
 
         const module = await import(/* webpackChunkName: "feature1" */ './feature1/feature1.module');
-        return $ocLazyLoad.load(module.default);
+        return $ocLazyLoad.inject(module.default);
     }
 };
 
